@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Transactions from '../Transactions'
-import { fetchTransactions } from '../../services'
+import useTransactions from '../../hooks/useTransactions'
 
 function Dashboard() {
-  const [transactions, setTransactions] = useState([])
-
-  useEffect(() => {
-    ;(async () => {
-      const newTransactions = await fetchTransactions()
-      setTransactions(newTransactions)
-    })()
-  }, [])
+  const { transactions } = useTransactions()
 
   return (
     <div className='Dashboard'>
