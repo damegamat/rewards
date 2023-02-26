@@ -13,6 +13,7 @@ export const calcRewardPoints = (price) => {
 }
 
 //TODO: Calculations of users rewards should be on backend side. Backend should expose API, which will allow to select range e.g months, year, page, items per page,
+// CalcUlus Rewards only works for transactions that are already sorted up to 3 months
 export const calcUsersRewards = (transactions) =>
   transactions.reduce((prev, next) => {
     const points = calcRewardPoints(Number(next.item.itemPrice))

@@ -2,6 +2,7 @@ import React from 'react'
 import { formatPoints } from '../../utils'
 
 //TODO: We have two very similar tables, we can consider a separate component for a Table and use it in those places
+//TODO: Component displays only 3 first months, we should make it display the 3 selected months
 function UsersRewards({ usersRewards }) {
   return (
     <div>
