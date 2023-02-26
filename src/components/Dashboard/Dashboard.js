@@ -1,15 +1,24 @@
 import React from 'react'
 import Transactions from '../Transactions'
+import Loader from '../Loader'
 import useTransactions from '../../hooks/useTransactions'
 
 function Dashboard() {
-  const { transactions } = useTransactions()
+  const { transactions, loading, error } = useTransactions()
 
   return (
-    <div className='Dashboard'>
-      <h1>Dashboard</h1>
-      <Transactions transactions={transactions} />
-    </div>
+    <Loader isLoading={loading}>
+      <div className='Dashboard'>
+        <h1>Dashboard</h1>
+        {error ? (
+          <span>{error}</span>
+        ) : (
+          <div>
+            <Transactions transactions={transactions} />
+          </div>
+        )}
+      </div>
+    </Loader>
   )
 }
 
