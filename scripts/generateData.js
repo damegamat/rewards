@@ -11,13 +11,13 @@ const users = Array.from({ length: 10 }, () => ({
 const items = Array.from({ length: 100 }, () => ({
   itemId: faker.datatype.uuid(),
   itemName: faker.commerce.productName(),
-  itemPrice: faker.commerce.product(),
+  itemPrice: faker.commerce.price(),
 }))
 
 // Create 20 transactions
 const transactions = Array.from({ length: 20 }, () => ({
-  transactionsId: faker.datatype.uuid(),
-  data: faker.date.between(new Date('2023/01/01'), new Date('2023/03/31')),
+  transactionId: faker.datatype.uuid(),
+  date: faker.date.between(new Date('2023/01/01'), new Date('2023/03/31')),
   user: users[faker.random.numeric()],
   item: items[faker.datatype.number({ min: 0, max: 99 })],
 }))
