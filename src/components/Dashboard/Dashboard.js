@@ -2,9 +2,12 @@ import React from 'react'
 import Transactions from '../Transactions'
 import Loader from '../Loader'
 import useTransactions from '../../hooks/useTransactions'
+import UsersRewards from '../UsersRewards'
+import { calcUsersRewards } from '../../utils'
 
 function Dashboard() {
   const { transactions, loading, error } = useTransactions()
+  const usersRewards = calcUsersRewards(transactions)
 
   return (
     <Loader isLoading={loading}>
@@ -15,6 +18,7 @@ function Dashboard() {
         ) : (
           <div>
             <Transactions transactions={transactions} />
+            <UsersRewards usersRewards={usersRewards} />
           </div>
         )}
       </div>
