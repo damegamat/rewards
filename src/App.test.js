@@ -4,5 +4,5 @@ import App from './App'
 
 test('renders My app', () => {
   render(<App />)
-  expect(screen.getByText(/My App/i)).toBeInTheDocument()
+  expect(screen.getByText(/Dashboard/i)).toBeInTheDocument()
 })
