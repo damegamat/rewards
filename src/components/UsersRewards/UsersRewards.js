@@ -1,6 +1,7 @@
 import React from 'react'
 import { formatPoints } from '../../utils'
 
+//TODO: We have two very similar tables, we can consider a separate component for a Table and use it in those places
 function UsersRewards({ usersRewards }) {
   return (
     <div>

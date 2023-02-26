@@ -1,5 +1,6 @@
 import { REWARD_MULTIPLIER, REWARD_POINTS_LIMITS } from './constants'
 
+// TODO: In current data structure reward points calculation should be on backend side
 export const calcRewardPoints = (price) => {
   if (price > REWARD_POINTS_LIMITS.extra)
     return (
@@ -11,6 +12,7 @@ export const calcRewardPoints = (price) => {
   return 0
 }
 
+//TODO: Calculations of users rewards should be on backend side. Backend should expose API, which will allow to select range e.g months, year, page, items per page,
 export const calcUsersRewards = (transactions) =>
   transactions.reduce((prev, next) => {
     const points = calcRewardPoints(Number(next.item.itemPrice))

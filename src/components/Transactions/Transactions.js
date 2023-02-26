@@ -1,5 +1,6 @@
 import React from 'react'
 
+//TODO: We have two very similar tables, we can consider a separate component for a Table and use it in those places
 function Transactions({ transactions }) {
   return (
     <div>
