@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { fetchTransactions } from '../services'
 
 function useTransactions() {
-  //TODO: for a global state consider e.g useContext (with reducer) / Redux
+  //TODO: for a global state consider e.g Context (with reducer) / Redux
   const [transactions, setTransactions] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = ''
+  const [error, setError] = useState('')
 
   useEffect(() => {
     ;(async () => {
@@ -14,6 +14,7 @@ function useTransactions() {
         // Fetch and set transactions
         const newTransactions = await fetchTransactions()
         setTransactions(newTransactions)
+        setError('')
       } catch (e) {
         console.error(e)
         setError('Can not fetch transactions :(, please try later')
