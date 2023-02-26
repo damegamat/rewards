@@ -16,6 +16,7 @@ function UsersRewards({ usersRewards }) {
                 <th>January</th>
                 <th>February</th>
                 <th>March</th>
+                <th>Total</th>
               </tr>
             </thead>
             <tbody>
