@@ -12,7 +12,7 @@ const MockConsole = jest.spyOn(console, 'error')
 describe('useTransactions ', () => {
   describe('successfully fetched the data', () => {
     describe('fetched empty data', () => {
-      beforeAll(async () => {
+      beforeEach(async () => {
         MockedFetchTransactions.mockImplementationOnce(() =>
           Promise.resolve([])
         )
@@ -29,7 +29,7 @@ describe('useTransactions ', () => {
     })
 
     describe('fetched transactions', () => {
-      beforeAll(async () => {
+      beforeEach(async () => {
         MockedFetchTransactions.mockImplementationOnce(() =>
           Promise.resolve(MockTransactions)
         )
@@ -49,9 +49,9 @@ describe('useTransactions ', () => {
   describe('failed to fetch the data', () => {
     const res = 'error'
     describe('fetched empty data', () => {
-      beforeAll(async () => {
+      beforeEach(async () => {
         MockedFetchTransactions.mockImplementationOnce(() =>
-          Promise.reject('err')
+          Promise.reject(res)
         )
         MockConsole.mockImplementationOnce(() => {})
       })
@@ -66,7 +66,7 @@ describe('useTransactions ', () => {
         )
         expect(result.current.loading).toBe(false)
         expect(MockConsole).toHaveBeenCalledTimes(1)
-        expect(MockConsole).toHaveBeenCalledWith('err')
+        expect(MockConsole).toHaveBeenCalledWith(res)
       })
     })
   })
