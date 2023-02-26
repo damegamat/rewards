@@ -5,7 +5,7 @@ function Loader({ children, isLoading }) {
   if (isLoading) {
     return (
       <div className='loader-wrapper'>
-        <div className='loader' />
+        <div className='loader' data-testid='loader' />
       </div>
     )
   }

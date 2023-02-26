@@ -8,7 +8,7 @@ import { calcUsersRewards } from '../../utils'
 function Dashboard() {
   const { transactions, loading, error } = useTransactions()
   const usersRewards = calcUsersRewards(transactions)
-
+  console.log(usersRewards)
   return (
     <Loader isLoading={loading}>
       <div className='Dashboard'>
