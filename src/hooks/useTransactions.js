@@ -3,6 +3,7 @@ import { fetchTransactions } from '../services'
 
 function useTransactions() {
   //TODO: for a global state consider e.g Context (with reducer) / Redux
+  // transacion are fetch for the 3 months
   const [transactions, setTransactions] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
